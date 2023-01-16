@@ -34,8 +34,14 @@ public class BlogController {
         model.addAttribute("text", blogService.getByDate(date).getText());
         return "text";
     }
-    @GetMapping("blog/searchDate")
+    @GetMapping("/searchDate")
     public String search(@RequestParam("redirectDate")String date){
+//        if(date==null) return "redirect:/blog/";
+        return "redirect:/blog/"+date;
+    }
+    @PostMapping("/{date}/clear")
+    public String clearText(@PathVariable String date){
+        blogService.update(new BlogText(date, null));
         return "redirect:/blog/"+date;
     }
 }

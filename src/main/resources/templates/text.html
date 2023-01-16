@@ -14,19 +14,23 @@
     </style>
 </head>
 <body>
-<form action="blog/searchDate">
+<form action="/blog/searchDate">
     <label>
         <input type="date" name="redirectDate">
     </label>
     <input type="submit" value="GO TO DATE">
 </form>
 <h1 th:text="${date}"/>
-<form th:action="'/blog/'+${date}" th:method="put">
+<form th:action="'/blog/'+${date}" method="post">
     <label>
         <textarea name="text"  th:text="${text}"/>
     </label>
     <br>
     <input type="submit" value="SAVE">
+</form>
+<br>
+<form method="post" th:action="'/blog/'+${date}+'/clear'">
+    <input type="submit" value="CLEAR TEXT" onclick="return confirm('Are you sure?')">
 </form>
 <br>
 <button onclick="location.href='/blog/'">BACK</button>
