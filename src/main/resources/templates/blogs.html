@@ -4,18 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        *{
-            text-align: center;
+        table {
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        button{
-            margin-top: 10px;
-            margin-bottom: 10px;
+        th {
+            background-color: darkslategrey;
+            color: white;
+        }
+        th,
+        td {
+            width: 150px;
+            text-align: center;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        a{
+            color: black;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-<div th:each="date : ${dates}">
-  <a th:href="'/blog/'+${date.toString()}"><button th:text="${date.toString()}"/></a>
-</div>
+<table>
+    <tr>
+        <th>DATE</th>
+        <th>HEADING</th>
+    </tr>
+    <tr th:each="pair : ${pairList}">
+        <td><a th:href="'/blog/'+${pair.getFirst().toString()}" th:text="${pair.getFirst().toString()}"/></td>
+        <td><a th:href="'/blog/'+${pair.getFirst().toString()}" th:text="${pair.getSecond().toString()}"/></td>
+    </tr>
+</table>
 </body>
 </html>

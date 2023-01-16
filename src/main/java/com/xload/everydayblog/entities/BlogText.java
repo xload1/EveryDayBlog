@@ -18,4 +18,6 @@ public class BlogText {
     @Id
     String date;
     String text;
+    String heading;
+
 }

@@ -20,8 +20,18 @@
     </label>
     <input type="submit" value="GO TO DATE">
 </form>
-<h1 th:text="${date}"/>
+<form th:action="'/blog/'+${date}+'/previous'" style="display: inline;">
+    <input type="submit" value="PREVIOUS DAY">
+</form>
+<h1 th:text="${date}" style="display: inline; margin: 100px 100px;"/>
+<form th:action="'/blog/'+${date}+'/next'" style="display: inline;">
+    <input type="submit" value="NEXT DAY">
+</form>
 <form th:action="'/blog/'+${date}" method="post">
+    <label>
+        <input type="text" name="heading" th:value="${heading}" style="width: 500px; height: 50px; font-size: 20px;">
+    </label>
+    <br>
     <label>
         <textarea name="text"  th:text="${text}"/>
     </label>

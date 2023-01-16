@@ -24,7 +24,7 @@ public class BlogService {
     }
     public BlogText getByDate(String date){
         if(blogRepository.findById(date).isEmpty()) {
-            blogRepository.save(new BlogText(date, null));
+            blogRepository.save(new BlogText(date, "", ""));
         }
         return blogRepository.findById(date).get();
     }
