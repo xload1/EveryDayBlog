@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            text-align: center;
+        }
+        textarea{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<form action="blog/searchDate">
+    <label>
+        <input type="date" name="redirectDate">
+    </label>
+    <input type="submit" value="GO TO DATE">
+</form>
+<h1 th:text="${date}"/>
+<form th:action="'/blog/'+${date}" th:method="put">
+    <label>
+        <textarea name="text"  th:text="${text}"/>
+    </label>
+    <br>
+    <input type="submit" value="SAVE">
+</form>
+<br>
+<button onclick="location.href='/blog/'">BACK</button>
+</body>
+</html>

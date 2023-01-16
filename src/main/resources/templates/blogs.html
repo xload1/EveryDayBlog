@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            text-align: center;
+        }
+        button{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div th:each="date : ${dates}">
+  <a th:href="'/blog/'+${date.toString()}"><button th:text="${date.toString()}"/></a>
+</div>
+</body>
+</html>
